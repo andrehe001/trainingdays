@@ -2,6 +2,7 @@
 @maxLength(8)
 @description('Name of environment')
 param env string = 'devd4'
+param location string = resourceGroup().location
 
 @description('The SKU of Windows based App Service Plan, default is B1')
 @allowed([
@@ -48,7 +49,6 @@ var planWindowsName = 'plan-scm-win-${env}-${uniqueString(resourceGroup().id)}'
 var planLinuxName = 'plan-scm-linux-${env}-${uniqueString(resourceGroup().id)}'
 var planDynamicWindowsName = 'plan-scm-win-dyn-${env}-${uniqueString(resourceGroup().id)}'
 var stForFunctiontName = 'stfn${env}${take(uniqueString(resourceGroup().id), 11)}'
-var location = resourceGroup().location
 
 // StorageAccount for Azure Functions
 resource stgForFunctions 'Microsoft.Storage/storageAccounts@2021-02-01' = {
