@@ -40,4 +40,4 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-This additional Text is used to run cahllenge 1 of Day 4
+This additional Text is used to run challenge 1 of Day 4
