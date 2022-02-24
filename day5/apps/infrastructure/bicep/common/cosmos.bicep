@@ -4,7 +4,8 @@
 param env string = 'devd4'
 
 var cosmosAccount = 'cosmos-scm-${env}-${uniqueString(resourceGroup().id)}'
-var location = resourceGroup().location
+// var location = resourceGroup().location
+param location string  = resourceGroup().location
 
 // CosmosDB Account
 resource cosmos 'Microsoft.DocumentDB/databaseAccounts@2021-03-15' = {
@@ -18,7 +19,8 @@ resource cosmos 'Microsoft.DocumentDB/databaseAccounts@2021-03-15' = {
     databaseAccountOfferType: 'Standard'
     locations: [
       {
-        locationName: resourceGroup().location
+        // locationName: resourceGroup().location
+        locationName: location
         failoverPriority: 0
         isZoneRedundant: false
       }

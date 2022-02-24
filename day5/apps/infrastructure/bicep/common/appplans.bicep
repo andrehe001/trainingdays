@@ -42,13 +42,15 @@ param resourceTag object
   'P2V2'
   'P3V2'
 ])
-param planLinuxSku string = 'B1'
+param planLinuxSku string = 'B2'
+
 
 var planWindowsName = 'plan-scm-win-${env}-${uniqueString(resourceGroup().id)}'
 var planLinuxName = 'plan-scm-linux-${env}-${uniqueString(resourceGroup().id)}'
 var planDynamicWindowsName = 'plan-scm-win-dyn-${env}-${uniqueString(resourceGroup().id)}'
 var stForFunctiontName = 'stfn${env}${take(uniqueString(resourceGroup().id), 11)}'
-var location = resourceGroup().location
+// var location = resourceGroup().location
+param location string  = resourceGroup().location
 
 // StorageAccount for Azure Functions
 resource stgForFunctions 'Microsoft.Storage/storageAccounts@2021-02-01' = {
