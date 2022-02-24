@@ -20,7 +20,7 @@ var planWindowsName = 'plan-scm-win-${env}-${uniqueString(resourceGroup().id)}'
 var appiName = 'appi-scm-${env}-${uniqueString(resourceGroup().id)}'
 var sbName = 'sb-scm-${env}-${uniqueString(resourceGroup().id)}'
 var sbqThumbnailsName = 'sbq-scm-thumbnails'
-var location = resourceGroup().location
+param location string = 'westeurope'
 
 resource appi 'Microsoft.Insights/components@2015-05-01' existing = {
   name: appiName

@@ -22,7 +22,7 @@ var planWindowsName = 'plan-scm-win-${env}-${uniqueString(resourceGroup().id)}'
 // ApplicationInsights name
 var appiName = 'appi-scm-${env}-${uniqueString(resourceGroup().id)}'
 // RG
-var location = resourceGroup().location
+param location string = 'westeurope'
 // Search
 var indexerName = 'scmcontacts'
 

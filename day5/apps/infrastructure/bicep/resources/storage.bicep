@@ -7,7 +7,7 @@ param env string = 'devd4'
 param resourceTag object
 
 var stgResourcesName = 'strs${env}${take(uniqueString(resourceGroup().id), 11)}'
-var location = resourceGroup().location
+param location string = 'westeurope'
 
 resource stgResources 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   name: stgResourcesName
