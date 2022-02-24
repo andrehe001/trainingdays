@@ -39,7 +39,7 @@ param planWindowsSku string = 'B1'
   'P2V2'
   'P3V2'
 ])
-param planLinuxSku string = 'B1'
+param planLinuxSku string = 'B2'
 
 var resourceTag = {
   Environment: env

@@ -13,7 +13,8 @@ var sbtContactsSearchSubscription = 'contactsearch'
 var sbtContactsVisitReportsSubscription = 'visitreports'
 var sbtVisitReportsName = 'sbt-visitreports'
 var sbtVisitReportsTextAnalyticsSubscription = 'textanalytics'
-var location = resourceGroup().location
+// var location = resourceGroup().location
+param location string  = resourceGroup().location
 
 // ServiceBus
 resource sb 'Microsoft.ServiceBus/namespaces@2017-04-01' = {
