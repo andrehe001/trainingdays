@@ -7,7 +7,7 @@ param env string = 'devd4'
 param resourceTag object
 
 var storageAccountName = 'stfe${env}${take(uniqueString(resourceGroup().id), 11)}'
-var location = resourceGroup().location
+param location string = 'westeurope'
 
 var appiName = 'appi-scm-${env}-${uniqueString(resourceGroup().id)}'
 var contactsApiName = 'app-contactsapi-${env}-${uniqueString(resourceGroup().id)}'
