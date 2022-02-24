@@ -24,7 +24,7 @@ var appiName = 'appi-scm-${env}-${uniqueString(resourceGroup().id)}'
 var sbName = 'sb-scm-${env}-${uniqueString(resourceGroup().id)}'
 var sbtContactsName = 'sbt-contacts'
 
-var location = resourceGroup().location
+param location string = 'westeurope'
 
 resource appi 'Microsoft.Insights/components@2015-05-01' existing = {
   name: appiName

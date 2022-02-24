@@ -9,7 +9,7 @@ param resourceTag object
 var cosmosAccount = 'cosmos-scm-${env}-${uniqueString(resourceGroup().id)}'
 var cosmosDbName = 'scmvisitreports'
 var cosmosDbContainerName = 'visitreports'
-var location = resourceGroup().location
+param location string = 'westeurope'
 
 resource cosmos 'Microsoft.DocumentDB/databaseAccounts@2021-03-15' existing = {
   name: cosmosAccount
