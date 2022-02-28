@@ -1,7 +1,7 @@
 @minLength(3)
 @maxLength(8)
 @description('Name of environment')
-param env string = 'devd4'
+param env string = 'devd5'
 
 var cosmosAccount = 'cosmos-scm-${env}-${uniqueString(resourceGroup().id)}'
 // var location = resourceGroup().location

@@ -1,4 +1,4 @@
-name: day5-scm-common
+name: day5-scm-common-dev
 
 on:
   push:
@@ -79,49 +79,6 @@ jobs:
           -n ${{ steps.createResourceGroupName.outputs.name }}
 
       - name: Deploy to dev environment
-        uses: azure/arm-deploy@v1
-        with:
-          failOnStdErr: false
-          resourceGroupName: ${{ steps.createResourceGroupName.outputs.name }}
-          template: ./${{ env.BICEP_FILE_NAME }}
-          parameters: env=${{ env.ENV_NAME }}
-
-
-  deploy-to-test:
-    if: (github.repository == 'andrehe001/trainingdays') && ((github.event_name == 'push') || (github.event_name == 'workflow_dispatch'))
-    runs-on: ubuntu-latest
-    environment: day5-scm-test
-    needs: deploy-to-dev
-    env:
-      RESOURCE_GROUP_NAME: rg-scm-testday5
-      RESOURCE_GROUP_LOCATION: westeurope
-      ENV_NAME: testd5
-
-    steps:
-      - name: Inject slug/short variables
-        uses: rlespinasse/github-slug-action@v3.x
-
-      - name: Create ResourceGroup name
-        id: createResourceGroupName
-        run: echo "::set-output name=name::${{ env.RESOURCE_GROUP_NAME }}-${{ env.GITHUB_REPOSITORY_OWNER_PART }}"
-
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: drop
-
-      - name: Login via Azure CLI
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Create ResourceGroup
-        run: >
-          az group create
-          -l ${{ env.RESOURCE_GROUP_LOCATION }}
-          -n ${{ steps.createResourceGroupName.outputs.name }}
-
-      - name: Deploy to test environment
         uses: azure/arm-deploy@v1
         with:
           failOnStdErr: false
