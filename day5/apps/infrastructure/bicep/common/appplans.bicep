@@ -1,7 +1,7 @@
 @minLength(3)
 @maxLength(8)
 @description('Name of environment')
-param env string = 'devd4'
+param env string = 'devd5'
 
 @description('The SKU of Windows based App Service Plan, default is B1')
 @allowed([
