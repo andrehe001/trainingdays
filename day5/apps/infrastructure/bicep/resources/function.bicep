@@ -15,7 +15,7 @@ var appiName = 'appi-scm-${env}-${uniqueString(resourceGroup().id)}'
 var stForFunctiontName = 'stfn${env}${take(uniqueString(resourceGroup().id), 11)}'
 var sbName = 'sb-scm-${env}-${uniqueString(resourceGroup().id)}'
 var sbqThumbnailsName = 'sbq-scm-thumbnails'
-var location = resourceGroup().location
+param location string = 'westeurope'
 
 var stgForFunctionConnectionString = 'DefaultEndpointsProtocol=https;AccountName=${stgForFunction.name};AccountKey=${listKeys(stgForFunction.id, stgForFunction.apiVersion).keys[0].value}'
 

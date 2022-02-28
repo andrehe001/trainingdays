@@ -7,7 +7,7 @@ param env string = 'devd4'
 param resourceTag object
 
 var textAnalyticsName = 'cog-textanalytics-${env}-${uniqueString(resourceGroup().id)}'
-var location = resourceGroup().location
+param location string = 'westeurope'
 
 resource textAnalytics 'Microsoft.CognitiveServices/accounts@2017-04-18' = {
   name: textAnalyticsName
